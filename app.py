@@ -3,7 +3,7 @@ import re
 
 # Configuração da página
 st.set_page_config(page_title="Limpador de Texto", layout="centered")
-st.title("🧹 Limpador de Texto")
+st.title("🧹 Limpa Texto")
 
 # Entrada do texto original
 texto_original = st.text_area("Cole aqui o texto que deseja limpar:", height=200)

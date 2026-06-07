@@ -26,7 +26,8 @@ def limpar_texto(texto, palavras_adicionais):
     return texto_limpo
 
 # Botão de ação
-if limpar = col1.button("🪄 Limpar Texto", use_container_width=True, type="primary"):
+if col1, col2 = st.columns([3, 1])
+limpar = col1.button("🪄 Limpar Texto", use_container_width=True, type="primary"):
     # Lista de palavras adicionais, separadas por vírgula
     palavras = [p.strip() for p in palavras_personalizadas.split(",") if p.strip()]
     

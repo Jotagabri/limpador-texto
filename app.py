@@ -4,7 +4,6 @@ import re
 # Configuração da página
 st.set_page_config(page_title="Limpador de Texto", layout="centered")
 st.title("🧹 Limpa Texto")
-st.caption("Remova padrões indesejados do seu texto de forma rápida e precisa.")
 
 # Entrada do texto original
 texto_original = st.text_area("Cole aqui o texto que deseja limpar:", height=200)
@@ -26,8 +25,7 @@ def limpar_texto(texto, palavras_adicionais):
     return texto_limpo
 
 # Botão de ação
-if col1, col2 = st.columns([3, 1])
-limpar = col1.button("🪄 Limpar Texto", use_container_width=True, type="primary"):
+if st.button("Limpar Texto"):
     # Lista de palavras adicionais, separadas por vírgula
     palavras = [p.strip() for p in palavras_personalizadas.split(",") if p.strip()]
     

@@ -5,6 +5,24 @@ import re
 st.set_page_config(page_title="Limpador de Texto", layout="centered")
 st.title("🧹 Limpa Texto")
 
+# Botão vermelho com ícone
+st.markdown("""
+<style>
+    .stButton > button {
+        background-color: #c0392b;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 500;
+    }
+    .stButton > button:hover {
+        background-color: #a93226;
+        color: white;
+        border: none;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Entrada do texto original
 texto_original = st.text_area("Cole aqui o texto que deseja limpar:", height=200)
 
@@ -17,15 +35,13 @@ palavras_personalizadas = st.text_input(
 def limpar_texto(texto, palavras_adicionais):
     # Remove "Acréscimos: R$ <valor>"
     texto_limpo = re.sub(r'Acréscimos: R\$[\s\d\.,]+', '', texto)
-
     # Remove palavras adicionais informadas pelo usuário
     for palavra in palavras_adicionais:
         texto_limpo = texto_limpo.replace(palavra, "")
-
     return texto_limpo
 
 # Botão de ação
-if st.button("Limpar Texto"):
+if st.button("🧹 Limpar Texto"):
     # Lista de palavras adicionais, separadas por vírgula
     palavras = [p.strip() for p in palavras_personalizadas.split(",") if p.strip()]
     
@@ -34,6 +50,5 @@ if st.button("Limpar Texto"):
     
     # Exibição do resultado
     st.text_area("Texto Limpo:", value=texto_limpo, height=200, key="texto_limpo")
-
     # Instrução para copiar manualmente
     st.info("📋 Selecione o texto acima e pressione Ctrl+C para copiar.")
